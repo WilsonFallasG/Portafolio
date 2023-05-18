@@ -24,7 +24,7 @@ const Index = () => (
                                 graduado de la carrera de Turismo Ecológico, actualmente curso la carrera de Informática empresarial
                             </p>
                             <div className="text-white">
-                                <a href="/contratame">Contratame</a>
+                                <a href="/contratacion">Contratame</a>
                             </div>
 
                         </div>
