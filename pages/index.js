@@ -1,6 +1,8 @@
 import Layout from "../components/Layout";
+
 import { habilidades } from "../perfil";
 import Link from 'next/link';
+import Contratacion from "./contratacion";
 const Index = () => (
 
     <Layout>
@@ -38,7 +40,8 @@ const Index = () => (
                     <div className="card.card-bady bg-secundary text-black">
                         <div className="row">
                             <div className="col-md-12">
-                                <h1 className="text-center">  Seccion de Proyectos de Github</h1>
+                                <h1 className="text-center">  Seccion de Proyectos Github</h1>
+
                             </div>
                             <div className="col-md-3">
                                 <div className="card">
