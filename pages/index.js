@@ -35,8 +35,6 @@ const Index = () => (
 
             <Projects />
         </header>
-
-
     </Layout>
 )
 
