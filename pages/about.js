@@ -29,9 +29,9 @@ const About = () =>
                         <p>Horas estudiante en dirección de la Sede del Sur</p>
                     </ul>
                     <div className="text-black">
-                    <h10>Visitar perfil </h10>
-                        <img src="link.png"  width="40" height="20" />
-                        
+                        <h10>Visitar perfil </h10>
+                        <img src="link.png" width="40" height="20" />
+
 
                         <a href="https://www.linkedin.com/in/wilson-fallas-gonzalez-033595276/">linke In</a>
 

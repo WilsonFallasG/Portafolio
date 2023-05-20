@@ -1,5 +1,5 @@
 import Layout from "../components/Layout";
-
+import GitHub from "./github";
 import { habilidades } from "../perfil";
 import Link from 'next/link';
 import Contratacion from "./contratacion";
@@ -41,6 +41,8 @@ const Index = () => (
                         <div className="row">
                             <div className="col-md-12">
                                 <h1 className="text-center">  Seccion de Proyectos Github</h1>
+
+                            
 
                             </div>
                             <div className="col-md-3">

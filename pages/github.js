@@ -1,6 +1,4 @@
 import Layout from "../components/Layout"
-
-
 const GitHub = ({user}) => {
 
     return(
@@ -15,19 +13,13 @@ const GitHub = ({user}) => {
                     </h5>
                     <h5>
                         Repositorios= {user.public_repos}
-                    </h5>                     
+                    </h5>                  
 
-                    <img src={user.avatar_url} alt="" />
-                    
-
-
+                    <img src={user.avatar_url} alt="" />           
                 </div>
 
             </div>
-
-
         </div>
-
     </Layout>)
     }
 export async function getServerSideProps()
@@ -35,13 +27,9 @@ export async function getServerSideProps()
    const res= await fetch('https://api.github.com/users/WilsonFallasG')
    
    const data= await res.json();
-
-   
-
    return{
     props:{
         user:data
-
     }
    }
    
