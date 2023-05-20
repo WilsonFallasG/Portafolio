@@ -23,7 +23,7 @@ const Navbar = () => {
   return (
     <nav className={`navbar navbar-expand-lg navbar-dark bg-black fixed-top ${isScrolled ? 'scrolled' : ''}`}>
       <div className="container max-width: 768px">
-        <div className="navbar-brand">Wilson Fallas G</div>
+        <div className="navbar-brand"><img src="W.png" width="40" height="25" /></div>
         <button
           className="navbar-toggler"
           type="button"
