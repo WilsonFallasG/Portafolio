@@ -1,7 +1,5 @@
 import Layout from "../components/Layout";
-import GitHub from "./github";
-import { habilidades } from "../perfil";
-import Link from 'next/link';
+import Projects from "./prueba";
 import Contratacion from "./contratacion";
 const Index = () => (
 
@@ -9,7 +7,7 @@ const Index = () => (
 
         <header className="row">
             <div className="col-md-12" >
-                <div className="card card-body bg-primary text-black">
+                <div className="card card-body  bg-light text-black">
                     <div className="row">
                         <div className="col-md-3">
                             <img src="Wilson.jpg" alt="" className="img img-fluid" />
@@ -33,32 +31,12 @@ const Index = () => (
             </div>
         </header>
 
-
         <header>
-            <div className="row">
-                <div className="col-md-12">
-                    <div className="card.card-bady bg-secundary text-black">
-                        <div className="row">
-                            <div className="col-md-12">
-                                <h1 className="text-center">  Seccion de Proyectos Github</h1>
 
-                            
-
-                            </div>
-                            <div className="col-md-3">
-                                <div className="card">
-                                    <img src="Patrones_diseno.jpg" alt="" className="img img-fluid" />
-                                    <div className="card-body">
-                                        <a href=""></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+            <Projects />
         </header>
+
+
     </Layout>
 )
 

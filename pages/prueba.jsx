@@ -1,39 +1,40 @@
-import Layout from "../components/Layout"
+import { useEffect, useState } from 'react';
+import { Carousel } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootswatch/dist/minty/bootstrap.min.css';
 
-const Prueba = ({user}) => {
+const Projects = () => {
+  const [projects, setProjects] = useState([]);
 
-    return(
-    <Layout>
-        <div className="row">
-            <div className="col-md-4 offset-md-4">
-                <div className="card card-body text-center">
-                    <h1>Mi GitHub</h1>
+  useEffect(() => {
+    fetch('https://api.github.com/users/WilsonFallasG/repos')
+      .then((response) => response.json())
+      .then((data) => {
+        setProjects(data);
+      })
+      .catch((error) => {
+        console.error('Error fetching GitHub projects:', error);
+      });
+  }, []);
 
-                    <h5>
-                       Usuario= {user.login}
-                    </h5>
-                    <h5>
-                        Repositorios= {user.public_repos}
-                    </h5>                  
+  return (
+    <div className="container mt-4 text-center">
+      <h1>Proyectos de GitHub</h1>
+      <Carousel className="w-50 mx-auto">
+        
+        {projects.map(({ id, name, description, html_url }) => (
+          <Carousel.Item key={id}>
+            <img src="github.png" alt="GitHub Logo" className="d-block w-100" />
+            <Carousel.Caption>
+              <h3 className="text-primary">{name}</h3>
+              <p>{description}</p>
+              <a href={html_url} target="_blank" rel="noopener noreferrer">Ver en GitHub</a>
+            </Carousel.Caption>
+          </Carousel.Item>
+        ))}
+      </Carousel>
+    </div>
+  );
+};
 
-                    <img src={user.avatar_url} alt="" />           
-                </div>
-
-            </div>
-        </div>
-    </Layout>)
-    }
-export async function getServerSideProps()
-{
-   const res= await fetch('https://api.github.com/users/WilsonFallasG')
-   
-   const data= await res.json();
-   return{
-    props:{
-        user:data
-    }
-   }
-   
-}
-
-export default Prueba;
+export default Projects;

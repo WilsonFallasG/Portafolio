@@ -1,4 +1,8 @@
 import Layout from "../components/Layout"
+import { useEffect, useState } from 'react';
+import { Carousel } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootswatch/dist/cosmo/bootstrap.min.css';
 const GitHub = ({user}) => {
 
     return(

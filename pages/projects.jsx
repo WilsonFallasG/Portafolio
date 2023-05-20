@@ -1,55 +1,50 @@
-import Layout from "../components/Layout";
+import React, { createContext, useState, useEffect} from 'react';
+import Layout from '../components/Layout';
 
-export default function Projects({project}) {
-    return (
-        <Layout>
-            <h1>Proyectos</h1>
-            {
-                project.map(({ id, name, full_name, avatar_url }) => (
+const GitHubContext = createContext();
 
-                    <div key={id}>
-                        <h3>{id} - {name}</h3>
-                        <p>body</p>
-                    </div>
-                ))
-            }
+const useGitHubProjects = () => {
+  const [projects, setProjects] = useState([]);
 
-        </Layout>
-    )
+  useEffect(() => {
+    fetch('https://api.github.com/users/WilsonFallasG/repos')
+      .then((response) => response.json())
+      .then((data) => {
+        setProjects(data);
+      })
+      .catch((error) => {
+        console.error('Error fetching GitHub projects:', error);
+      });
+  }, []);
 
-}
-
-export async function getStaticProps() {
-    try {
-        const res = await fetch('https://api.github.com/users/WilsonFallasG/repos')
-        const project = await res.json()
-        return {
-            props: { project }
-        }
-
-    } catch (error) {
-        console.log(error)
-    }
-
-
-}
-const ProjectsCarousel = () => {
-    const project = useContext(GitHubContext);
-
-    return (
-        <div className="carousel">
-            {project.map((project) => (
-                <div key={project.id} className="project-container">
-                    <h3>{project.name}</h3>
-                    <p>{project.description}</p>
-                    <a href={project.html_url} target="_blank" rel="noopener noreferrer">
-
-                    </a>
-                </div>
-            ))}
-        </div>
-    );
+  return projects;
 };
+
+
+
+const Projects = () => {
+  const projects = useGitHubProjects();
+
+  return (
+    <Layout>
+      <h1>Proyectos</h1>
+      {projects.map(({ id, name }) => (
+        <div key={id}>
+          <img src="github.png" alt="GitHub Logo" width="200" height="200" />
+          <h3>
+            Id: {id}
+            <br />
+            Nombre: {name}
+          </h3>
+          <p>Proyecto GitHub</p>
+        </div>
+      ))}
+    </Layout>
+  );
+};
+
+export default Projects;
+
 
 
  
